@@ -51,6 +51,18 @@ void *thread(void *vargp)
 }
 ~~~
 
+因为每个线程都对计数器增加了 niters 次，我们预计它的最终值是 2 × niters。这看上去简单而直接。
+然而，当在 Linux 系统上运行 badcnt.c 时，我们不仅得到错误的答案，而且每次得到的答案都还不相同！
+
+~~~shell
+czy@czy-307-thinkcentre-m720q-n000 ~/new_space/Concurrent_Programming/05
+☺  ./badcnt 1000000                                                                                                           master ✗
+BOOM! cnt=1004913
+
+czy@czy-307-thinkcentre-m720q-n000 ~/new_space/Concurrent_Programming/05
+☺  ./badcnt 1000000                                                                                                           master ✗
+BOOM! cnt=1429824
+~~~
 
 
 
